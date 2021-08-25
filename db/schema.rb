@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_044429) do
+ActiveRecord::Schema.define(version: 2021_08_25_044809) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -56,6 +56,24 @@ ActiveRecord::Schema.define(version: 2021_08_25_044429) do
     t.integer "event_id"
     t.integer "individual_id"
     t.integer "contribution"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "individuals", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "address_id"
+    t.string "phone_number"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "petitions", force: :cascade do |t|
+    t.integer "agent_id"
+    t.integer "event_id"
+    t.integer "individual_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
