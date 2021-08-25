@@ -1,34 +1,24 @@
-<style>
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
+ <div class="container-fluid" style="background-color:white">
+      <div class="row align-items-center">
+        <div class="col-3">
+          <a href="/"><img class="img-fluid" src="https://i.ibb.co/mR8B6wK/9f2915d2e2f34c5e99441129158cf238.png" alt="Field Office Logo" border="0" style="max-height:100px"></a>
+        </div>
 
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer';
-  grid-gap: 10px;
-  background-color: #2196F3;
-  padding: 10px;
-}
+        <div class="col">
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/people">People</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/stats" tabindex="-1" aria-disabled="true">Fundraising & Petitions</a>
+            </li>
+        </ul>
+        </div>
 
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-}
-</style>
-
-
-<div class="grid-container">
-  <div class="item1">Test</div>
-  <div class="item2">Menu</div>
-  <div class="item3">Main</div>  
-  <div class="item4">Right</div>
-  <div class="item5">Footer</div>
-</div>
+<div class="container-fluid" style="text-align:center">
