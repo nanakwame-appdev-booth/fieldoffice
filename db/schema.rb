@@ -10,6 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_25_033839) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "agents", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role"
+    t.integer "team_id"
+    t.integer "address_id"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
