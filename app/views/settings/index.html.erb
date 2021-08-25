@@ -1,3 +1,4 @@
+<!--- Header --->
  <div class="container-fluid" style="background-color:white">
       <div class="row align-items-center">
         <div class="col-3">
@@ -16,7 +17,7 @@
               <a class="nav-link" href="/events">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="/stats" tabindex="-1" aria-disabled="true">Fundraising & Petitions</a>
+              <a class="nav-link" href="/stats" tabindex="-1">Fundraising & Petitions</a>
             </li>
         </ul>
         </div>
@@ -27,11 +28,11 @@
 <!--- Heading --->
 <div class="container" style="padding-top:40px">
   <div class="row">
-    <div class="col-4">
-      <h1 style="font-weight:bold;font-size:30px">ADD PEOPLE</h1>
+    <div class="col-1">
+      <h1 style="font-weight:bold;font-size:30px">SETTINGS</h1>
     </div>
 
-    <div class="col-7">
+    <div class="col-10">
     </div>
 
     <div class="col">
@@ -42,20 +43,21 @@
 </div>
 
 <!--- Form --->
-<form>
-  <div>
-    <label for="fname"> First Name </label>
-    <input id="fname" type="text"> 
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
 
-  <div>
-    <label for="lname"> Last Name </label>
-    <input id="lname" type="text"> 
-  </div>
+      <form>
+        <div>
+          <label for="role_title">Title</label>
+          <input id="role_title" type="text">
+        </div>
+        
+          <button type="submit" class="btn btn-primary">Add Role</button>
 
-  <div>
-    <label> Role </label>
-    
-  </div>
 
-</form>
+      </form>
+
+    </div>
+  </div>
+</div>
