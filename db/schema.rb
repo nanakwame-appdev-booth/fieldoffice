@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_044809) do
+ActiveRecord::Schema.define(version: 2021_08_25_225349) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2021_08_25_044809) do
   create_table "agents", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "role"
     t.integer "team_id"
     t.integer "address_id"
     t.string "email"
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
   end
 
   create_table "event_organizers", force: :cascade do |t|
@@ -74,6 +74,12 @@ ActiveRecord::Schema.define(version: 2021_08_25_044809) do
     t.integer "agent_id"
     t.integer "event_id"
     t.integer "individual_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
