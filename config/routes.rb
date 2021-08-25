@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get("/people/team", { :controller => "people", :action => "team"})
   get("/people/volunteers", { :controller => "people", :action => "volunteers"})
   get("/people/recruited", { :controller => "people", :action => "recruits"})
+  get("/people/add_people", { :controller => "people", :action => "add"})
 end
