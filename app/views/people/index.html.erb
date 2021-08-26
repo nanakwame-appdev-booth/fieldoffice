@@ -41,6 +41,25 @@
 
 </div>
 
+<!--- Sort --->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form>
+        <label for="sort"> Filter by role:</label>
+        <input id="sort" name="role" type="text" list="roles">
+        <datalist id="roles">
+          <%@list_of_roles.each do |role|%>
+            <option value="<%=role.title%>"
+
+          <%end%>
+        </datalist>
+      </form>
+    </div>
+  </div>
+
+</div>
+
 <!--- Table --->
 <div class="container" style="margin-top:50px">
   <div class="row">
@@ -61,7 +80,7 @@
             <%=agent.first_name%> <%=agent.last_name%> 
           </td>
           <td> 
-            <%=agent.role%> 
+            <%=agent.position.title%> 
           </td>
           <td> 
             <%=agent.email%> 

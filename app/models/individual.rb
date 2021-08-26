@@ -13,4 +13,15 @@
 #  address_id   :integer
 #
 class Individual < ApplicationRecord
+
+  def position
+    my_role_id = self.role
+
+    matching_roles = Role.where({ :id => my_role_id})
+
+    the_role = matching_roles.at(0)
+
+    return the_role
+  end
+
 end

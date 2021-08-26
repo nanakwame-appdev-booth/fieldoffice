@@ -14,12 +14,12 @@ namespace :slurp do
     t.phone_number = row["phone_number"]
     t.email = row["email"]
     t.role = row["role"]
-  
     t.save
     puts "#{t.first_name}, #{t.phone_number} saved"
   end
 
-  puts "There are now #{Individual.count} rows in the individuals table"
+  puts "There are now #{Individual.count} rows in the transactions table"
+  
 
   end
 

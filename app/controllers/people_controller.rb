@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 
   def index
     @list_of_people = Individual.all.order({ :first_name => :asc})
+    @list_of_roles = Role.all
 
     render ({ :template => "people/index.html.erb"}) 
   end
