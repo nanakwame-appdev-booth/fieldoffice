@@ -36,4 +36,10 @@ class PeopleController < ApplicationController
     render ({ :template => "people/person.html.erb"})
   end
 
+  def add_person
+    
+
+    render ({ :template => "people/add_individual.html.erb"})
+  end
+
 end
