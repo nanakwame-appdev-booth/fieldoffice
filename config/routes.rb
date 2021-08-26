@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get("/people/volunteers", { :controller => "people", :action => "volunteers"})
   get("/people/recruited", { :controller => "people", :action => "recruits"})
   get("/people/add_people", { :controller => "people", :action => "add"})
+  get("/people/:individual_id", { :controller => "people", :action => "person_view"})
 
   get("/settings", { :controller => "settings", :action => "index"})
   get("/add_role/submit", { :controller => "settings", :action => "submit_role"})
