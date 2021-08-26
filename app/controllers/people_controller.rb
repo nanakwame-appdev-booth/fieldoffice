@@ -7,18 +7,18 @@ class PeopleController < ApplicationController
     render ({ :template => "people/index.html.erb"}) 
   end
 
-  def team
-    @list_of_agents = Agent.all.order({ :first_name => :asc})
-
-    render ({ :template => "people/index.html.erb"}) 
+  def Candidate
+    @list_of_roles = Role.all
+    needed_role = @list_of_roles.where({ :title => "Candidate"})
+    @list_of_people = Individual.where({:id => needed_role.id}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/candidate.html.erb"}) 
   end
 
   def filter
     filter_choice = params.fetch("role")
 
-    filter_choice = 
-
-    redirect_to("/people/")
+    redirect_to("/people/" + filter_choice)
   end
 
   def volunteers

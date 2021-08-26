@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get("/homepage", { :controller => "app_home", :action => "index"})
 
   get("/people", { :controller => "people", :action => "index"})
-  get("/people/team", { :controller => "people", :action => "team"})
+  get("/people/Candidate", { :controller => "people", :action => "candidate"})
   get("/people/volunteers", { :controller => "people", :action => "volunteers"})
   get("/people/recruited", { :controller => "people", :action => "recruits"})
   get("/people/add_people", { :controller => "people", :action => "add"})
