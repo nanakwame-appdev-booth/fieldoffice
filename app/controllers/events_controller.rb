@@ -17,15 +17,31 @@ class EventsController < ApplicationController
     event_name = params.fetch("name")
     event_team = params.fetch("team")
     event_desc = params.fetch("desc")
-    event_start = params.fetch("start")
-    event_end = params.fetch("end")
+    event_start = params.fetch("start").to_datetime
+    event_end = params.fetch("end").to_datetime
+
+    team_id = Team.where({ :team_name => event_team}).at(0)
 
     new_event = Event.new
 
     new_event.name = event_name
-    new_event.desc = event_desc
+    new_event.team_id = team_id.id
+    new_event.description = event_desc
+    new_event.start_date = event_start
+    new_event.end_date = event_end
 
-    render ({ :template => "events/add.html.erb"})
+    new_event.save
+
+    #render ({ :template => "events/add.html.erb"})
+    redirect_to("/events/" + new_event.id.to_s)
   end
 
+  def event
+    event_id = params.fetch("id")
+
+    @list_of_events = Event.all
+    @this_event = Event.where({ :id => event_id }).at(0)
+
+    render ({ :template => "events/event.html.erb"})
+  end
 end
