@@ -1,0 +1,78 @@
+ <!--- Page Heading --->
+ <div class="container-fluid" style="background-color:white">
+      <div class="row align-items-center">
+        <div class="col-3">
+          <a href="/"><img class="img-fluid" src="https://i.ibb.co/mR8B6wK/9f2915d2e2f34c5e99441129158cf238.png" alt="Field Office Logo" border="0" style="max-height:100px"></a>
+        </div>
+
+        <div class="col">
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/people">People</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/events" aria-disabled="true">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/stats" tabindex="-1">Fundraising & Petitions</a>
+            </li>
+        </ul>
+        </div>
+<div class="container-fluid" style="text-align:center">
+<hr style="padding:0;margin:0">        
+
+<!--- Heading --->
+<div class="container" style="padding-top:40px">
+  <div class="row">
+    <div class="col-4" style="text-align:left">
+      <h1 style="font-weight:bold;font-size:30px">ADD EVENT</h1>
+    </div>
+</div>
+
+<div class="container" style="margin-top:40px">
+  <div class="row">
+    <div class="col-2">
+    </div>
+
+    <div class="col-8">
+    <!--- Form --->
+      <form style="text-align:left">
+          <div class="mb-3">
+            <label class="form-label" for="name">Event Name</label>
+            <input class="form-control" for="name" type="text" name="name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="team">Event Team</label>
+            <input class="form-control" for="team" type="text" name="name" list="team">
+              <datalist id="team">
+                <%@list_of_teams.each do |team|%>
+                  <option value="<%=team.team_name%>">
+                <%end%>
+              </datalist>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="desc">Event Description</label>
+            <textarea class="form-control" for="desc" type="text" name="desc"> </textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="start">Start Time</label>
+            <input class="form-control" id="start" type="datetime-local" name="start">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="end">End Time</label>
+            <input class="form-control" id="end" type="datetime-local" name="end">
+          </div>
+      </form>
+    </div>
+
+    <div class="col-2">
+    </div>
+  </div>
+</div>

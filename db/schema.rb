@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_204526) do
+ActiveRecord::Schema.define(version: 2021_08_26_213154) do
 
   create_table "address_individuals", force: :cascade do |t|
     t.string "address_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_204526) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "fundraisings", force: :cascade do |t|

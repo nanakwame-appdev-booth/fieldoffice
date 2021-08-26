@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get("/add_role/submit", { :controller => "settings", :action => "submit_role"})
   
   get("/events", { :controller => "events", :action => "index"})
+  get("/event/add_event", { :controller => "events", :action => "add"})
 end
