@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get("/people", { :controller => "people", :action => "index"})
   get("/people/candidate", { :controller => "people", :action => "candidate"})
   get("/people/select_role", { :controller => "people", :action => "select_role"})
+  get("/people/selectrole", { :controller => "people", :action => "index"})
   get("/people/volunteer", { :controller => "people", :action => "volunteers"})
   get("/people/fieldmanager", { :controller => "people", :action => "field_managers"})
   get("/people/petitioner", { :controller => "people", :action => "petitioners"})
