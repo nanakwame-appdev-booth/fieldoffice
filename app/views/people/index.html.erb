@@ -42,21 +42,19 @@
 </div>
 
 <!--- Sort --->
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <form>
-        <label for="sort"> Filter by role:</label>
-        <input id="sort" name="role" type="text" list="roles">
-        <datalist id="roles">
-          <%@list_of_roles.each do |role|%>
-            <option value="<%=role.title%>"
+<form action="/people/filter">
+  <select id="role" name="role" class="form-select">
 
-          <%end%>
-        </datalist>
-      </form>
-    </div>
-  </div>
+    <option>Select Role</option>
+
+    <%@list_of_roles.each do |role|%>
+      <option><%=role.title%></option>
+    <%end%>
+
+  </select>
+
+  <button class="btn btn-outline-primary">Done</button>
+</form>
 
 </div>
 
@@ -65,7 +63,7 @@
   <div class="row">
     <div class="col">
       <table class="table table-hover">
-        <th colspan="3">
+        <th colspan="3" style="text-align:center">
           All (<%=@list_of_people.count%>)
         </th>
         <tr>

@@ -13,6 +13,14 @@ class PeopleController < ApplicationController
     render ({ :template => "people/index.html.erb"}) 
   end
 
+  def filter
+    filter_choice = params.fetch("role")
+
+    filter_choice = 
+
+    redirect_to("/people/")
+  end
+
   def volunteers
     @list_of_agents = Agent.all.order({ :first_name => :asc})
 
