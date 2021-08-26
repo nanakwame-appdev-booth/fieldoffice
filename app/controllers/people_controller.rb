@@ -39,18 +39,18 @@ class PeopleController < ApplicationController
   def add_person
     #Parameters: {"fname"=>"Jason", "lname"=>"Antwi", "role"=>"Candidate", "email"=>"Jason.Antwi@gmail.com", "phone"=>"7754011975", "address1"=>"1234 Main Street", "address2"=>"386", "city"=>"Oakland", "state"=>"California", "zip"=>"94607", "individual_id"=>"add_person"}
 
-    first_name = param.fetch("fname")
-    last_name = param.fetch("lname")
-    role = param.fetch("role")
-    email = param.fetch("email")
-    phone = param.fetch("phone")
-    address1 = param.fetch("address1")
-    address2 = param.fetch("address2")
-    city = param.fetch("city")
-    state = param.fetch("state")
-    zip = param.fetch("zip")
+    first_name = params.fetch("fname")
+    last_name = params.fetch("lname")
+    role = params.fetch("role")
+    email = params.fetch("email")
+    phone = params.fetch("phone")
+    address1 = params.fetch("address1")
+    address2 = params.fetch("address2")
+    city = params.fetch("city")
+    state = params.fetch("state")
+    zip = params.fetch("zip")
 
-    role_search = Role.where({ :title => role})
+    role_search = Role.where({ :title => role}).at(0)
     role_id = role_search.id
 
     new_address = Address.new 
@@ -59,7 +59,7 @@ class PeopleController < ApplicationController
     new_address.address2 = address2
     new_address.city = city
     new_address.state = state
-    new_address.zip = zip
+    new_address.zip_code = zip
 
     new_address.save
     
@@ -72,12 +72,12 @@ class PeopleController < ApplicationController
     new_individual.role = role_id
     new_individual.phone_number = phone
     new_individual.email = email
-    new_individual.address = address_id
+    new_individual.address_id = address_id
 
     new_individual.save
 
 
-    render ({ :template => "people/add_individual.html.erb"})
+    #render ({ :template => "people/add_individual.html.erb"})
     redirect_to("/people/" + new_individual.id.to_s)
   end
 
