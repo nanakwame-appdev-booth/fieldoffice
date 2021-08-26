@@ -34,3 +34,94 @@
       </h1>
     </div>
 </div>
+
+<form action="/people/add_individual" target="_self">
+  <!--- Personal Info --->
+    <div class="container border" style="margin-top:40px;margin-bottom:20px;text-align:left;padding:20px"> 
+      <div class="row" style="padding-bottom:10px">
+      <div class="col">
+        <h4>Personal Info</h4>
+      </div>
+    </div>
+      
+      <div class="row">
+        <div class="col-4 mb-3">  
+          <label class="form-label" for="fname"> First Name </label>
+          <input class="form-control" id="fname" type="text" name="fname" value="<%=@the_person.first_name%>"> 
+        </div>
+
+        <div class="col-4 mb-3">  
+          <label class="form-label" for="lname"> Last Name </label>
+          <input class="form-control" id="lname" type="text" name="lname" value="<%=@the_person.last_name%>"> 
+        </div>
+
+        <div class="col-4 mb-3">  
+          <label class="form-label" for="role"> Role </label>
+          <input class="form-control" id="role" type="text" name="role" list="roles" value="<%=@the_person.position.title%>">
+            <datalist id="roles">
+            <%@list_of_roles.each do |role|%>
+                <option value="<%=role.title%>">
+            <%end%>
+            </datalist>
+        </div>
+
+        <div class="col-6 mb-3">  
+          <label class="form-label" for="email"> Email </label>
+          <input class="form-control" id="email" type="text" name="email" value="<%=@the_person.email%>"> 
+        </div>
+
+        <div class="col-6 mb-3">  
+          <label class="form-label" for="phone"> Phone Number </label>
+          <input class="form-control" id="phone" type="text" name="phone" value="<%=@the_person.phone_number%>"> 
+        </div>
+      </div>
+    </div>
+    
+  <!--- Address --->
+    <div class="container border" style="padding:20px;text-align:left" >
+      <div class="row" style="padding-bottom:10px">
+        <div class="col">
+          <h4>Address</h4>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input name="address1" type="text" class="form-control" id="inputAddress" value="<%=@the_person.first_name%>">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input name="address2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input name="city" type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <input name="state" type="text" class="form-control" id="inputState">
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input name="zip" type="text" class="form-control" id="inputZip">
+        </div>
+      </div>
+    </div>
+
+  <!--- Confirm Addition or Cancel --->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-10">
+        </div>
+
+        <div class="d-grid gap-5 d-md-block" style="padding-top:20px">
+          <a class="btn btn-danger" href="/people" role="button">Cancel</a>
+          <button class="btn btn-primary" type="submit">Add Person</button>
+        </div>
+        
+      </div>
+    </div>
+
+</form>

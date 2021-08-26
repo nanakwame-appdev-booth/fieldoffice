@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_230022) do
+ActiveRecord::Schema.define(version: 2021_08_26_204526) do
+
+  create_table "address_individuals", force: :cascade do |t|
+    t.string "address_id"
+    t.string "individual_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"

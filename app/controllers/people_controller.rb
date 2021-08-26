@@ -64,6 +64,7 @@ class PeopleController < ApplicationController
   def person_view
     person_id = params.fetch("individual_id")
 
+    @list_of_roles = Role.all
     @person_record = Individual.where({ :id => person_id })
     @the_person = Individual.where({ :id => person_id }).at(0)
 

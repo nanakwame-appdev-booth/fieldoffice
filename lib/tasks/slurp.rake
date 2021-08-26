@@ -1,25 +1,25 @@
 namespace :slurp do
   desc "TODO"
-  task individuals: :environment do
+  task address: :environment do
 
   require "csv"
 
-  csv_text = File.read(Rails.root.join("lib", "csvs", "individuals.csv"))
+  csv_text = File.read(Rails.root.join("lib", "csvs", "addresses.csv"))
   csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
   csv.each do |row|
-    t = Individual.new
-    t.first_name = row["first_name"]
-    t.last_name = row["last_name"]
-    t.address_id = row["address_id"]
-    t.phone_number = row["phone_number"]
-    t.email = row["email"]
-    t.role = row["role"]
+    t = Address.new
+    t.address = row["address"]
+    t.address2 = row["address2"]
+    t.city = row["city"]
+    t.state = row["state"]
+    t.zip_code = row["zip_code"]
+
     t.save
-    puts "#{t.first_name}, #{t.phone_number} saved"
+    puts "#{t.address}, #{t.zip_code} saved"
+
   end
 
-  puts "There are now #{Individual.count} rows in the transactions table"
-  
+  puts "There are now #{Address.count} rows in the transactions table"
 
   end
 
