@@ -50,19 +50,35 @@ class PeopleController < ApplicationController
     state = param.fetch("state")
     zip = param.fetch("zip")
 
+    role_search = Role.where({ :title => role})
+    role_id = role_search.id
+
+    new_address = Address.new 
+
+    new_address.address = address1
+    new_address.address2 = address2
+    new_address.city = city
+    new_address.state = state
+    new_address.zip = zip
+
+    new_address.save
+    
+    address_id = new_address.id
+    
     new_individual = Individual.new 
 
     new_individual.first_name = first_name
     new_individual.last_name = last_name
+    new_individual.role = role_id
     new_individual.phone_number = phone
     new_individual.email = email
+    new_individual.address = address_id
 
     new_individual.save
 
-        
-
 
     render ({ :template => "people/add_individual.html.erb"})
+    redirect_to("/people/" + new_individual.id.to_s)
   end
 
 end
