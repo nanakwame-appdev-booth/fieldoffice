@@ -41,21 +41,69 @@
 
 </div>
 
-<!--- Form --->
-<form>
-  <div>
-    <label for="fname"> First Name </label>
-    <input id="fname" type="text"> 
-  </div>
+<!--- Name --->
+<form >
+  <div class="container"> 
+    <div class="row">
+      <div class="col-6 mb-3">  
+        <label class="form-label" for="fname"> First Name </label>
+        <input class="form-control" id="fname" type="text" name="fname"> 
+      </div>
+    </div>
 
-  <div>
-    <label for="lname"> Last Name </label>
-    <input id="lname" type="text"> 
-  </div>
+    <div class="row">  
+      <div class="col-6 mb-3">
+        <label class="form-label" for="lname"> Last Name </label>
+        <input class="form-control" id="lname" type="text" name="lname"> 
+      </div>
+    </div>
 
-  <div>
-    <label> Role </label>
-    
-  </div>
+    <div class="row">
+      <div class="col-6 mb-3">
+        
+        <label for="role"> Role </label>
+        <select class="form-select" aria-label="Default select example" id="role" name="role">
+          <%@list_of_roles.each do |role|%>
+              <option> <%=role.title%> </option>
+          <%end%>
+        </select>
 
+      </div>
+    </div>
+  </div>
 </form>
+
+<!--- Address --->
+<div class="container border" style="padding:20px;text-align:left" >
+  <div class="row" style="padding-bottom:10px">
+    <div class="col">
+      <h4>Address</h4>
+    </div>
+  </div>
+  
+  <form class="row g-3">
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">State</label>
+      <select id="inputState" class="form-select">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </form>
+</div>

@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
   end
 
   def add
-    
+    @list_of_roles = Role.all
 
     render ({ :template => "people/add.html.erb"}) 
   end
