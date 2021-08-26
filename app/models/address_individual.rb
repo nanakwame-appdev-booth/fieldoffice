@@ -9,4 +9,17 @@
 #  individual_id :string
 #
 class AddressIndividual < ApplicationRecord
+
+  def addy_indy
+    individual_id = self.individual_id 
+    address_id = self.address_id 
+
+    individual_matching = Individual.where({ :id => individual_id}).where({ :address_id => address_id})
+
+    addy_indy_record = individual_matching.at(0)
+
+    return addy_indy_record
+  end
+
+
 end
