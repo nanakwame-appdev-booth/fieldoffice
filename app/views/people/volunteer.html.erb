@@ -75,13 +75,13 @@
         <%@list_of_people.each do |agent|%>
         <tr>
           <td> 
-            <%=agent.first_name%> <%=agent.last_name%> 
+           <a href="/people/<%=agent.id%>"> <%=agent.first_name%> <%=agent.last_name%> </a>
           </td>
           <td> 
-            <%=agent.position.title%> 
+            <a href="/people/<%=agent.id%>"><%=agent.position.title%> </a>
           </td>
           <td> 
-            <%=agent.email%> 
+            <a href="/people/<%=agent.id%>"><%=agent.email%> </a>
           </td>
         </tr>
 
