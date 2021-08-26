@@ -7,12 +7,44 @@ class PeopleController < ApplicationController
     render ({ :template => "people/index.html.erb"}) 
   end
 
-  def Candidate
+  def select_role
+    
+    redirect_to("/people")
+  end
+
+  def candidate
     @list_of_roles = Role.all
-    needed_role = @list_of_roles.where({ :title => "Candidate"})
-    @list_of_people = Individual.where({:id => needed_role.id}).order({ :first_name => :asc})
+    @list_of_people = Individual.where({:role => "5"}).order({ :first_name => :asc})
     
     render ({ :template => "people/candidate.html.erb"}) 
+  end
+
+  def volunteers
+    @list_of_roles = Role.all
+    @list_of_people = Individual.where({:role => "6"}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/volunteer.html.erb"}) 
+  end
+
+  def field_managers
+    @list_of_roles = Role.all
+    @list_of_people = Individual.where({:role => "7"}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/field_managers.html.erb"}) 
+  end
+
+  def petitioners
+    @list_of_roles = Role.all
+    @list_of_people = Individual.where({:role => "8"}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/petitioners.html.erb"}) 
+  end
+
+  def donors
+    @list_of_roles = Role.all
+    @list_of_people = Individual.where({:role => "9"}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/donors.html.erb"}) 
   end
 
   def filter
@@ -21,17 +53,6 @@ class PeopleController < ApplicationController
     redirect_to("/people/" + filter_choice)
   end
 
-  def volunteers
-    @list_of_agents = Agent.all.order({ :first_name => :asc})
-
-    render ({ :template => "people/index.html.erb"}) 
-  end
-
-  def recruits
-    @list_of_agents = Agent.all.order({ :first_name => :asc})
-
-    render ({ :template => "people/index.html.erb"}) 
-  end
 
   def add
     @list_of_roles = Role.all
