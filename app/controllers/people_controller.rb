@@ -8,8 +8,9 @@ class PeopleController < ApplicationController
   end
 
   def select_role
-    
-    redirect_to("/people")
+    role_select = params.fetch("role").delete(' ').downcase
+
+    redirect_to("/people/" + role_select) 
   end
 
   def candidate
