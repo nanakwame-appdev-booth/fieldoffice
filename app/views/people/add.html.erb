@@ -63,7 +63,12 @@
 
       <div class="col-4 mb-3">  
         <label class="form-label" for="role"> Role </label>
-        <input class="form-control" id="role" type="text" name="role"> 
+        <input class="form-control" id="role" type="text" name="role" list="roles">
+          <datalist id="roles">
+          <%@list_of_roles.each do |role|%>
+              <option value="<%=role.title%>">
+           <%end%>
+           </datalist>
       </div>
 
       <div class="col-6 mb-3">  
