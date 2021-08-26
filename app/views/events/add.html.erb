@@ -39,7 +39,7 @@
 
     <div class="col-8">
     <!--- Form --->
-      <form style="text-align:left">
+      <form style="text-align:left" action="/event/add_event/submit" target="_self">
           <div class="mb-3">
             <label class="form-label" for="name">Event Name</label>
             <input class="form-control" for="name" type="text" name="name">
@@ -47,7 +47,7 @@
 
           <div class="mb-3">
             <label class="form-label" for="team">Event Team</label>
-            <input class="form-control" for="team" type="text" name="name" list="team">
+            <input class="form-control" for="team" type="text" name="team" list="team">
               <datalist id="team">
                 <%@list_of_teams.each do |team|%>
                   <option value="<%=team.team_name%>">
@@ -68,6 +68,21 @@
           <div class="mb-3">
             <label class="form-label" for="end">End Time</label>
             <input class="form-control" id="end" type="datetime-local" name="end">
+          </div>
+
+          <!--- Confirm Addition or Cancel --->
+          <div class="container" content-align:right">
+            
+            <div class="row">
+              <div class="col-10">
+              </div>
+
+              <div class="d-grid gap-5 d-md-block" style="padding-top:20px">
+                <button class="btn btn-primary" type="submit">Add Event</button>
+                <a class="btn btn-danger" href="/people" role="button">Cancel</a>
+              </div>
+              
+            </div>
           </div>
       </form>
     </div>
