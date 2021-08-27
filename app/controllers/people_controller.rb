@@ -48,6 +48,13 @@ class PeopleController < ApplicationController
     render ({ :template => "people/donors.html.erb"}) 
   end
 
+  def attendee
+    @list_of_roles = Role.all
+    @list_of_people = Individual.where({:role => "10"}).order({ :first_name => :asc})
+    
+    render ({ :template => "people/attendee.html.erb"}) 
+  end
+
   def filter
     filter_choice = params.fetch("role")
 

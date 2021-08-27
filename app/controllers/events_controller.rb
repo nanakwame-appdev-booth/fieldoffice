@@ -60,6 +60,7 @@ class EventsController < ApplicationController
     individual.first_name = fname
     individual.last_name = lname
     individual.email = email
+    individual.role_id = "10"
     individual.save
 
     attendance = EventAttendee.new
