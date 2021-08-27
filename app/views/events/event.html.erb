@@ -41,8 +41,9 @@
       <div> <strong>End Time:</strong> <%=@this_event.end_date%> </div>
     </div>
 
-    <div class="col-6">
-      <h3>Event Statistics</h3>
+    <div class="col-6" style="text-align:left">
+      <h3 style="text-align:center">Event Statistics</h3>
+      <div> <strong>Attendance:</strong> <%=@attendance.count%>
     </div>
 
   </div>
@@ -54,7 +55,12 @@
     <div class="col-6" style="text-align:left">
       <h3 style="text-align:center">Track Attendance</h3>
 
-      <form>
+      <form action="/event/add_attendee" target="_self">
+        <div>
+          <label class="form-label" for="event_id">Event ID</label>
+          <input class=form-control" id="event_id" name="id" value="<%=@this_event.id%>" readonly>
+        </div>
+        
         <div>
           <label class="form-label" for="fname">First Name</label>
           <input class="form-control" id="fname" name="fname" type="text">
@@ -78,8 +84,36 @@
 
     </div>
 
-    <div class="col-6">
-      <h3>Track Donations</h3>
+    <div class="col-6" style="text-align:left">
+      <h3 style="text-align:center">Track Donations</h3>
+      
+      <form>
+         <div>
+          <label class="form-label" for="event_id">Event ID</label>
+          <input class=form-control" id="event_id" name="id" value="<%=@this_event.id%>" readonly>
+        </div>
+        
+        <div>  
+          <label class="form-label" for=attendee>Attendee</label>
+          <select class="form-control" id="attendee" name="attendee">
+            <%@attendance.each do |attendee|%>
+              <option>
+                <%=attendee.individual.first_name%> <%=attendee.individual.last_name%> 
+              </option>
+            <%end%>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label" for="damount">Donation Amount</label>
+          $<input class="form-control" id="damount" name="damount" type="number" placeholder="0">
+        </div>
+
+        <div style="padding-top:15px">
+          <button type="submit" class="btn btn-outline-primary">Record Donation</button>
+        </div>
+
+      </form>
     </div>
   </div>
 

@@ -41,7 +41,30 @@ class EventsController < ApplicationController
 
     @list_of_events = Event.all
     @this_event = Event.where({ :id => event_id }).at(0)
+    @attendance = EventAttendee.where({ :event_id => event_id})
 
     render ({ :template => "events/event.html.erb"})
+  end
+
+  def add_attendee
+    #Parameters: {"fname"=>"John", "lname"=>"Jacobson", "email"=>"jonisjon@gmail.com", "id"=>"4"}
+
+    fname = params.fetch("fname")
+    lname = params.fetch("lname")
+    email = params.fetch("email")
+    event_id = params.fetch("id")
+
+    individual = Individual.new
+    individual.first_name = fname
+    individual.last_name = lname
+    individual.email = email
+    individual.save
+
+    attendance = EventAttendee.new
+    attendance.individual_id = individual.id
+    attendance.event_id = event_id 
+    attendance.save
+
+    redirect_to("/events/" + event_id)
   end
 end
