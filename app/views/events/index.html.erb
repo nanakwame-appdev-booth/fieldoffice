@@ -41,10 +41,10 @@
 
 </div>
 
-<div class="container">
+<div class="container" style="padding-top:30px">
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table table-hover">
         <tr>
           <th colspan="4"> Upcoming Events </th>
         </tr>
@@ -54,6 +54,16 @@
           <th> Start Time </th>
           <th> Team </th>
         </tr>
+
+        <%@list_of_events.each do |event|%>
+          <tr>
+            <td> <a href="/events/<%=event.id%>"> <%=event.name%> </a></td>
+            <td> <a href="/events/<%=event.id%>"> <%=event.start_date.strftime("%B %d, %Y")%> </a></td>
+            <td> <a href="/events/<%=event.id%>"> <%=event.start_date.strftime("%I:%M %p")%> </a></td>
+            <td> <a href="/events/<%=event.id%>"> <%=event.team.team_name%> </a></td>
+          </tr>
+        <%end%>
+
       </table>
     </div>
 

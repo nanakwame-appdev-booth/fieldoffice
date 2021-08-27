@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   def index
+    @list_of_events = Event.all
 
     render ({ :template => "events/index.html.erb"})
   end

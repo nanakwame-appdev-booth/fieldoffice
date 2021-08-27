@@ -13,4 +13,15 @@
 #  team_id     :integer
 #
 class Event < ApplicationRecord
+
+  def team
+    team_id = self.team_id
+
+    matching_team = Team.where({ :id => team_id})
+
+    team_name = matching_team.at(0)
+
+    return team_name
+  end
+
 end
