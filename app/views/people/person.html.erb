@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<form action="/people/edit_individual" target="_self">
+<form action="/people/edit_individual" target="_self" id="edit_info">
   <!--- Personal Info --->
     <div class="container border" style="margin-top:40px;margin-bottom:20px;text-align:left;padding:20px"> 
       <div class="row" style="padding-bottom:10px">
@@ -73,20 +73,22 @@
         </div>
       </div>
     </div>
-  
+  </form>
+  </form>
+
+  <form action="/people/delete" target="_self" id="delete_person"> 
+
   <!--- Confirm Addition or Cancel --->
     <div class="container">
-      
       <div class="row">
-        <div class="col-10">
+        <div class="col-6">
+          <div class="d-grid gap-5 d-md-block" style="padding-top:20px">
+            <button class="btn btn-primary" type="submit" form="edit_info">Edit Info</button>
+            <input id="delete" name="delete_id" type="hidden" value="<%=@the_person.id%>">
+              <button type="submit" class="btn btn-danger" form="delete_person">Delete Person</button>
+          </div>
         </div>
-
-        <div class="d-grid gap-5 d-md-block" style="padding-top:20px">
-          <button class="btn btn-primary" type="submit">Edit Info</button>
-          <a class="btn btn-danger" href="/people/delete/<%=@the_person.id%>" role="button">Delete Record</a>
         </div>
-        
       </div>
     </div>
 
-</form>

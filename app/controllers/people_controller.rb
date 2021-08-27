@@ -149,4 +149,14 @@ class PeopleController < ApplicationController
     redirect_to("/people/" + new_individual.id.to_s)
   end
 
+  def delete
+    person_id = params.fetch("delete_id")
+
+    delete_record = Individual.where({ :id => person_id}).at(0)
+
+    delete_record.destroy
+
+    redirect_to("/people")
+  end
+
 end

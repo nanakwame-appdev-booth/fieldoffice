@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get("/people/add_people", { :controller => "people", :action => "add"})
   get("/people/add_individual", { :controller => "people", :action => "add_person"})
   get("/people/edit_individual", { :controller => "people", :action => "edit_person"})
+  get("/people/delete", { :controller => "people", :action => "delete"})
   get("/people/filter", { :controller => "people", :action => "filter"})
   get("/people/:individual_id", { :controller => "people", :action => "person_view"})
 
