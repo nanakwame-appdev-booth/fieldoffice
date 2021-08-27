@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get("/", { :controller => "landing_page", :action => "index"})
 
+  get("/sign_up", { :controller => "login", :action => "sign_up"})
+  get("/sign_up/new_user", { :controller => "login", :action => "new_user"})
+
   get("/homepage", { :controller => "app_home", :action => "index"})
 
   get("/people", { :controller => "people", :action => "index"})

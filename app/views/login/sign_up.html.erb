@@ -1,0 +1,76 @@
+ <div class="container-fluid" style="background-color:white">
+      <div class="row" align="center">
+        <div class="col">
+          <a href="/"><img class="img-fluid" src="https://i.ibb.co/mR8B6wK/9f2915d2e2f34c5e99441129158cf238.png" alt="Field Office Logo" border="0" style="max-height:130px"></a>
+        </div>
+      </div>
+    </div>
+<div class="container-fluid" style="text-align:center">
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+
+    <div class="col-4">
+      <form action="/people/user_role">
+        <div>
+          <label for="fname">First Name</label>
+          <input id="fname" name="fname" type="text" placeholder="John">
+        </div>
+
+        <div>
+          <label for="lname">Last Name</label>
+          <input id="lname" name="lname" type="text" placeholder="Doe">
+        </div>
+        
+        <div>  
+          <label for="role"> Role </label>
+          <input id="role" type="text" name="role" list="roles" placeholder="Select role">
+            <datalist id="roles">
+            <%@list_of_roles.each do |role|%>
+                <option value="<%=role.title%>">
+            <%end%>
+            </datalist>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter email...">
+        </div>
+
+        <div>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="text" placeholder="123-456-7890">
+        </div>
+
+        <div>
+          <label for="pword">Password</label>
+          <input id="pword" name="pword" type="password" placeholder="Enter password..">
+        </div>
+
+        <div>
+          <label for="pword_confirm">Confirm Password</label>
+          <input id="pword_confirm" name="pword_confirm" type="password" placeholder="Confirm password...">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="col-4">
+    </div>
+  </div>
+
+</div>

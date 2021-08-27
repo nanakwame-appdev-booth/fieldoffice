@@ -2,17 +2,26 @@
 #
 # Table name: individuals
 #
-#  id           :integer          not null, primary key
-#  email        :string
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
-#  role         :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  address_id   :integer
+#  id              :integer          not null, primary key
+#  email           :string
+#  first_name      :string
+#  last_name       :string
+#  password_digest :string
+#  phone_number    :string
+#  role            :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  address_id      :integer
 #
 class Individual < ApplicationRecord
+  validates( :email,
+    {
+      :presence => true,
+      :uniqueness => { :case_sensitive => false }
+    }
+  )
+
+  has_secure_password
 
   def position
     my_role_id = self.role
