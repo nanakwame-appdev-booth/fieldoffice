@@ -104,6 +104,19 @@ class PeopleController < ApplicationController
     render ({ :template => "people/person.html.erb"})
   end
 
+  def new
+    person_id = params.fetch("individual_id")
+
+    @list_of_roles = Role.all
+    @list_of_addresses = AddressIndividual.all
+    @single_address = @list_of_addresses.at(0)
+
+    @person_record = Individual.where({ :id => person_id })
+    @the_person = Individual.where({ :id => person_id }).at(0)
+
+    render ({ :template => "people/newperson.html.erb"})
+  end
+
   def add_person
     #Parameters: {"fname"=>"Jason", "lname"=>"Antwi", "role"=>"Candidate", "email"=>"Jason.Antwi@gmail.com", "phone"=>"7754011975", "address1"=>"1234 Main Street", "address2"=>"386", "city"=>"Oakland", "state"=>"California", "zip"=>"94607", "individual_id"=>"add_person"}
 

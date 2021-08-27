@@ -98,7 +98,7 @@
         
         <div>  
           <label class="form-label" for=attendee>Attendee</label>
-          <select class="form-control" id="attendee" name="attendee">
+          <select class="form-control" id="attendee" name="attendee" placeholder="Select attendee">
             <%@attendance.each do |attendee|%>
               <option>
                 <%=attendee.individual.id%>. <%=attendee.individual.first_name%> <%=attendee.individual.last_name%> 

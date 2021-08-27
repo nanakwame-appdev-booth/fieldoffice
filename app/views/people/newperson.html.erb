@@ -25,13 +25,10 @@
 <!--- Heading --->
 <div class="container" style="padding-top:40px;text-align:left">
   <div class="row">
-    <div class="col-10">
+    <div class="col-11">
       <h1 style="font-weight:bold;font-size:30px">
-        <%=@the_person.first_name%> <%=@the_person.last_name%>
+        Welcome to Field Office, <%=@the_person.first_name%> <%=@the_person.last_name%>!
       </h1>
-    </div>
-    <div class="col-2" style="text-align:right">
-      <a href="/people">Go to people</a>
     </div>
 </div>
 
@@ -43,6 +40,7 @@
         <h4>Edit Personal Info</h4>
       </div>
     </div>
+      
       <div class="row">
         <div class="col-4 mb-3">  
           <label class="form-label" for="fname"> First Name </label>
@@ -73,7 +71,6 @@
           <label class="form-label" for="phone"> Phone Number </label>
           <input class="form-control" id="phone" type="text" name="phone" value="<%=@the_person.phone_number%>"> 
         </div>
-      
       </div>
     </div>
   </form>
@@ -88,7 +85,6 @@
           <div class="d-grid gap-5 d-md-block" style="padding-top:20px">
             <button class="btn btn-primary" type="submit" form="edit_info">Edit Info</button>
             <input id="delete" name="delete_id" type="hidden" value="<%=@the_person.id%>">
-              <button type="submit" class="btn btn-danger" form="delete_person">Delete Person</button>
           </div>
         </div>
         </div>

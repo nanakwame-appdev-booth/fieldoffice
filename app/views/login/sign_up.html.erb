@@ -15,13 +15,19 @@
   </div>
 </div>
 
+<div>
+  <%=alert%>
+</div>
+
+<br>
+
 <div class="container">
   <div class="row">
     <div class="col-4">
     </div>
 
     <div class="col-4">
-      <form action="/people/user_role">
+      <form action="/sign_up/new_user" target="_self">
         <div>
           <label for="fname">First Name</label>
           <input id="fname" name="fname" type="text" placeholder="John">
@@ -34,12 +40,14 @@
         
         <div>  
           <label for="role"> Role </label>
-          <input id="role" type="text" name="role" list="roles" placeholder="Select role">
-            <datalist id="roles">
+          <select id="role" type="text" name="role" list="roles" placeholder="Select role">
+            <option id="roles">
             <%@list_of_roles.each do |role|%>
-                <option value="<%=role.title%>">
+                <option>
+                  <%=role.id%>. <%=role.title%>
+                </option>
             <%end%>
-            </datalist>
+          </select>
         </div>
 
         <div>

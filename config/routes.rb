@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get("/homepage", { :controller => "app_home", :action => "index"})
 
   get("/people", { :controller => "people", :action => "index"})
+  get("/people/new_user/:individual_id", { :controller => "people", :action => "new"})
   get("/people/candidate", { :controller => "people", :action => "candidate"})
   get("/people/select_role", { :controller => "people", :action => "select_role"})
   get("/people/selectrole", { :controller => "people", :action => "index"})

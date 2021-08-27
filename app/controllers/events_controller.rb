@@ -62,7 +62,9 @@ class EventsController < ApplicationController
     individual.last_name = lname
     individual.email = email
     individual.role = "10"
+    individual.password_digest = nil
     individual.save
+    
 
     attendance = EventAttendee.new
     attendance.individual_id = individual.id
