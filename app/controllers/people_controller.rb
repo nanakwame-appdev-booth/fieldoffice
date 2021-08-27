@@ -68,6 +68,29 @@ class PeopleController < ApplicationController
     render ({ :template => "people/add.html.erb"}) 
   end
 
+  def edit_person
+    #Parameters: {"fname"=>"Adam", "lname"=>"Small", "role"=>"Volunteer", "email"=>"biglou@mac.com", "phone"=>"734-676-6079"}
+    phone_number = params.fetch("phone")
+    fname = params.fetch("fname")
+    lname = params.fetch("lname")
+    role = params.fetch("role")
+    email = params.fetch("email")
+
+    role_search = Role.where({ :title => role}).at(0)
+    role_id = role_search.id
+
+    new_update = Individual.where({ :phone_number => phone_number}).at(0)
+    new_update.first_name = fname
+    new_update.last_name = lname
+    new_update.role = role_search.id
+    new_update.email = email
+    new_update.phone_number = phone_number
+    new_update.save
+
+
+    redirect_to("/people/" + new_update.id.to_s)
+  end
+
   def person_view
     person_id = params.fetch("individual_id")
 
