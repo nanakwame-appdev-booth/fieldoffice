@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get("/event/add_event", { :controller => "events", :action => "add"})
   get("/event/add_event/submit", { :controller => "events", :action => "submit"})
   get("/event/add_attendee", { :controller => "events", :action => "add_attendee"})
+  get("/event/add_donation", { :controller => "events", :action => "add_donation"})
   get("/events/:id", { :controller => "events", :action => "event"})
 end

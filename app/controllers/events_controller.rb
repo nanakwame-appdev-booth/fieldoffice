@@ -42,6 +42,8 @@ class EventsController < ApplicationController
     @list_of_events = Event.all
     @this_event = Event.where({ :id => event_id }).at(0)
     @attendance = EventAttendee.where({ :event_id => event_id})
+    matching_donation_record = EventDonation.where({ :event_id => event_id}).at(0)
+    @donations = Fundraising.where({ :id => matching_donation_record.fundraising_id})
 
     render ({ :template => "events/event.html.erb"})
   end
@@ -67,4 +69,27 @@ class EventsController < ApplicationController
 
     redirect_to("/events/" + event_id)
   end
+
+  def add_donation
+    #Parameters: {"id"=>"4", "attendee"=>"176. test yup", "damount"=>"200"}
+
+    donation = params.fetch("damount")
+    attendee_name = params.fetch("attendee").gsub(/[^a-z]/i, "")
+    attendee_id = params.fetch("attendee").gsub(/[^0-9]/, "")
+    event_id = params.fetch("id")
+
+    new_donation = Fundraising.new
+    new_donation.event_id = event_id
+    new_donation.individual_id = attendee_id
+    new_donation.contribution = donation
+    new_donation.save 
+
+    donation_record = EventDonation.new
+    donation_record.fundraising_id = new_donation.id
+    donation_record.event_id = event_id
+    donation_record.save
+
+    redirect_to("/events/" + event_id)
+  end
+
 end
