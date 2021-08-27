@@ -29,31 +29,34 @@
     </div>
 </div>
 
-<div class="container" style="padding-bottom:50px">
+<div class="container" style="padding-bottom:50px;padding-top: 20px">
   <div class="row">
     <div class="col-6" style="text-align:left">
-      <h3 style="text-align:center">Event Details</h3>
+      <h3 style="text-align:center;padding-bottom:10px">Event Details</h3>
       <div> <strong>Description:</strong> <%=@this_event.description%> </div>
-      <div> <strong>Start Time:</strong> <%=@this_event.start_date%> </div>
-      <div> <strong>End Time:</strong> <%=@this_event.end_date%> </div>
+      <div> <strong>Start Time:</strong> <%=@this_event.start_date.strftime("%A, %B %d, %Y @ %I:%M%p")%> </div>
+      <div> <strong>End Time:</strong> <%=@this_event.end_date.strftime("%A, %B %d, %Y @ %I:%M%p")%> </div>
     </div>
 
     <div class="col-6" style="text-align:left">
-      <h3 style="text-align:center">Event Statistics</h3>
+      <h3 style="text-align:center;padding-bottom:10px">Event Statistics</h3>
       <div> <strong>Attendance:</strong> <%=@attendance.count%>
       <div> <strong>Donations:</strong> $<%=@donations.sum(:contribution)%>
     </div>
-
   </div>
+  </div>
+</div>
 
 </div>
 
-<div class="container">
+<hr>
+
+<div class="container" style="padding-top:10px">
   <div class="row">
     <div class="col-6" style="text-align:left">
-      <h3 style="text-align:center">Track Attendance</h3>
+      <h3 style="text-align:center;padding-bottom:15px">Track Attendance</h3>
 
-      <form action="/event/add_attendee" target="_self">
+      <form action="/event/add_attendee" target="_self" id="attendee">
         <div>
           <label class="form-label" for="event_id">Event ID</label>
           <input class=form-control" id="event_id" name="id" value="<%=@this_event.id%>" readonly>
@@ -74,18 +77,16 @@
           <input class="form-control" id="email" name="email" type="email"> 
         </div>
 
-        <div style="padding-top:15px">
-          <button type="submit" class="btn btn-outline-primary">Add Attendee</button>
-        </div>
+
 
       </form>
 
     </div>
 
     <div class="col-6" style="text-align:left">
-      <h3 style="text-align:center">Track Donations</h3>
+      <h3 style="text-align:center;padding-bottom:15px">Track Donations</h3>
       
-      <form action="/event/add_donation" target="_self">
+      <form action="/event/add_donation" target="_self" id="donation">
          <div>
           <label class="form-label" for="event_id">Event ID</label>
           <input class=form-control" id="event_id" name="id" value="<%=@this_event.id%>" readonly>
@@ -103,16 +104,27 @@
         </div>
 
         <div>
-          <label class="form-label" for="damount">Donation Amount</label>
-          $<input class="form-control" id="damount" name="damount" type="number" placeholder="0">
+          <label class="form-label" for="damount">Donation Amount (in $)</label>
+          <input class="form-control" id="damount" name="damount" type="number" placeholder="0">
         </div>
 
-        <div style="padding-top:15px">
-          <button type="submit" class="btn btn-outline-primary">Record Donation</button>
-        </div>
+
 
       </form>
     </div>
   </div>
+  <div class="row" style="text-align:left">
+    <div class="col-6">
+      <div style="padding-top:15px">
+        <button type="submit" class="btn btn-outline-primary" form="attendee">Add Attendee</button>
+      </div>
+    </div>
 
+    <div class="col-6">
+      <div style="padding-top:15px">
+        <button type="submit" class="btn btn-outline-primary" form="donation">Record Donation</button>
+      </div>
+    </div>
+
+  </div>
 </div>

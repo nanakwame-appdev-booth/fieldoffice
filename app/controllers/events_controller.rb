@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     @this_event = Event.where({ :id => event_id }).at(0)
     @attendance = EventAttendee.where({ :event_id => event_id})
     matching_donation_record = EventDonation.where({ :event_id => event_id}).at(0)
-    @donations = Fundraising.where({ :id => matching_donation_record.fundraising_id})
+    @donations = Fundraising.where({ :event_id => event_id})
 
     render ({ :template => "events/event.html.erb"})
   end
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
     individual.first_name = fname
     individual.last_name = lname
     individual.email = email
-    individual.role_id = "10"
+    individual.role = "10"
     individual.save
 
     attendance = EventAttendee.new
